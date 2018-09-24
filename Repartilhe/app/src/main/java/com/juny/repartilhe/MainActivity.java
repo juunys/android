@@ -9,11 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     LinearLayout sliderDotspanel;
+    private ViewPagerAdapter viewPagerAdapter;
     private int dotscount;
     private ImageView[] dots;
 
@@ -23,11 +25,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager = findViewById(R.id.viewPager);
+        sliderDotspanel = findViewById(R.id.SliderDots);
 
-        sliderDotspanel = (LinearLayout) findViewById(R.id.SliderDots);
-
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
+        viewPagerAdapter = new ViewPagerAdapter(this);
 
         viewPager.setAdapter(viewPagerAdapter);
 

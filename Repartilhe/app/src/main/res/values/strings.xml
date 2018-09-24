@@ -2,5 +2,6 @@
     <string name="app_name">Repartilhe</string>
     <string name="facebook_app_id">2069188739997364</string>
     <string name="fb_login_protocol_scheme">fb2069188739997364</string>
+    <string name="textview">TextView</string>
 
 </resources>

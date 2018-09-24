@@ -45,12 +45,14 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="288dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:text="HELLO" />
+        android:text="HELLO">
+
+    </android.support.v4.view.ViewPager>
 
     <LinearLayout
         android:id="@+id/SliderDots"
