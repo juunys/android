@@ -10,20 +10,28 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.widget.ProgressBar;
 
 public class StartActivity extends AppCompatActivity {
+
+
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
     }
 
     public void startClicked(View view) {
 
-        final ProgressDialog pg = ProgressDialog.show(this, "", "");
+        progressBar.setVisibility(View.VISIBLE);
         Intent intent = new Intent(StartActivity.this, SignupActivity.class);
         startActivity(intent);
+        progressBar.setVisibility(View.GONE);
 
     }
 

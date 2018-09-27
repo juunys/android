@@ -9,9 +9,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
+
+
+    private ProgressBar progressBar;
 
     ViewPager viewPager;
     LinearLayout sliderDotspanel;
@@ -19,11 +25,25 @@ public class MainActivity extends AppCompatActivity {
     private int dotscount;
     private ImageView[] dots;
 
+    FirebaseAuth auth;
+
+
+   /* @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (auth.getCurrentUser() != null) {
+
+        }
+    }*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
 
         viewPager = findViewById(R.id.viewPager);
         sliderDotspanel = findViewById(R.id.SliderDots);
@@ -35,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         dotscount = viewPagerAdapter.getCount();
         dots = new ImageView[dotscount];
 
+        // Add the dots images
         for(int i = 0; i < dotscount; i++){
 
             dots[i] = new ImageView(this);
@@ -48,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        // Set the first dot as the Active
         dots[0].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.login_dot_active));
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -77,10 +99,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void signupClicked(View view) {
 
-
-        final ProgressDialog pg = ProgressDialog.show(this, "", "");
+        progressBar.setVisibility(View.VISIBLE);
         Intent intent = new Intent(this, StartActivity.class);
         startActivity(intent);
+        progressBar.setVisibility(View.GONE);
     }
 
     public void fbClicked(View view) {

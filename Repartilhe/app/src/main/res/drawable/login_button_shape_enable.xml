@@ -9,9 +9,5 @@
         android:color="#ff3071"
         />
 
-    <stroke
-        android:width="1dp"
-        android:color="#D3D3D3"
-        />
 
 </shape>
